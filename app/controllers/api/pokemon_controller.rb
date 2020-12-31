@@ -5,6 +5,7 @@ class Api::PokemonController < ApplicationController
     end
 
     def index
+        @pokemon = Pokemon.all
         render :index
     end
 end
