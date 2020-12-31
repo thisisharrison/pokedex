@@ -1,11 +1,11 @@
-import { combineReducer } from 'redux';
+import { combineReducers } from 'redux';
 import entitiesReducer from './entities_reducer';
 
-export default rootReducer = combineReducer(
-    {
-        entities: entitiesReducer
-    }
-);
+const rootReducer = combineReducers({
+    entities: entitiesReducer
+});
+
+export default rootReducer;
 
 // Reducer
 // rootReducer

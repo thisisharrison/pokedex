@@ -1,11 +1,14 @@
 import { RECEIVE_ALL_POKEMON } from '../actions/pokemon_actions';
 
-export default pokemonReducer = (oldState = {}, action) => {
+const pokemonReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
+    let nextState = Object.assign({}, oldState);
     switch (action.type) {
         case RECEIVE_ALL_POKEMON:
-            return action.pokemon;
+            return Object.assign({}, action.pokemon, oldState);
         default:
             return oldState;
     }
 }
+
+export default pokemonReducer;
