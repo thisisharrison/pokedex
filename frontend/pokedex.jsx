@@ -21,7 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
     window.store = store;
     window.getState = store.getState;
     window.dispatch = store.dispatch;
-    window.poke = selectAllPokemon(getState())[0];
+    
+    const myPoke = () => setTimeout(() => {
+        window.poke = selectAllPokemon(getState())[0];
+        console.log("Poke ready, ", poke);
+    },3000)
+    myPoke();
 })
 
 // Test
