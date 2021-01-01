@@ -11,6 +11,7 @@ export default rootReducer;
 // rootReducer
 //     entititiesReducer
 //         pokemonReducer
+//             itemsReducer
 
 // State
 // {
