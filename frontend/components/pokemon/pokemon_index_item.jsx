@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const PokemonIndexItem = ({ poke }) => (    
+const PokemonIndexItem = ({ pokemon }) => (    
     <li className="pokemon-index-item">
-        <Link to={`/pokemon/${poke.id}`} >
+        <Link to={`/pokemon/${pokemon.id}`} >
             <span>
-                <img src={poke.imageUrl} />
+                <img src={pokemon.imageUrl} />
             </span>
-            {poke.name}
+            {pokemon.name}
         </Link>
     </li>
 )
