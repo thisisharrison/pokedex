@@ -54,6 +54,7 @@ export const requestSinglePokemon = (id) => dispatch => {
 }
 
 export const createPokemon = (pokemon) => dispatch => {
+    dispatch(startLoadingSinglePokemon());
     return APIUtil.postPokemon(pokemon).then(
         (payload) => {
             dispatch(receiveSinglePokemon(payload));

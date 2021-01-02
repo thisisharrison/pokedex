@@ -19,7 +19,9 @@ class PokemonForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createPokemon(this.state).then(newPoke => {
-            this.props.history.push(`pokemon/${newPoke.id}`);
+            console.log(newPoke)
+            let id = Object.keys(newPoke)[0];
+            this.props.history.push(`pokemon/${id}`);
         });
     }
 
