@@ -27,6 +27,11 @@ class PokemonForm extends React.Component {
         return e => this.setState({[property] : e.target.value})
     }
 
+    errors() {
+        const { errors } = this.props;
+        return errors.map((e) => <li className="error" key={e}>{e}</li>);
+    }
+
     render() {
         const { name, attack, defense, poke_type, image_url, move_1, move_2 } = this.state;
         const POKEMON_TYPES = [
@@ -51,6 +56,7 @@ class PokemonForm extends React.Component {
         
         return (
             <section className="pokemon-detail">
+                <ul>{this.errors()}</ul>
                 <form className="pokemon-form" onSubmit={this.handleSubmit}>
                     <input type="text"
                         value={name} 
