@@ -34,7 +34,7 @@ class PokemonForm extends React.Component {
 
     render() {
         const { name, attack, defense, poke_type, image_url, move_1, move_2 } = this.state;
-        const typeOptions = POKEMON_TYPES.map((type, idx) => <option value={type} key={idx}>{type}</option>);
+        const typeOptions = POKEMON_TYPES.map((type, idx) => <option value={type} key={type}>{type}</option>);
         
         return (
             <section className="pokemon-detail">
@@ -51,7 +51,6 @@ class PokemonForm extends React.Component {
                         onChange={this.update('image_url')} />
                     
                     <select
-                        value={poke_type}
                         defaultValue="Select Pokemon Type"
                         onChange={this.update('poke_type')}>
                         {typeOptions}
