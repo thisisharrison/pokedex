@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import ItemDetailContainer from '../items/item_detail_container';
 import Item from '../items/item';
+import LoadingIcon from './loading_icon';
 
 class PokemonDetail extends React.Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class PokemonDetail extends React.Component {
         }
     }
     render () {
+        if (this.props.loading) { return <LoadingIcon /> }
         const {items, moves} = this.props;
         // if (!this.props.pokemon) debugger
         const {name, pokeType, attack, defense, imageUrl} = this.props.pokemon;

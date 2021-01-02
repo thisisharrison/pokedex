@@ -6,7 +6,8 @@ import { selectPokemonMovesNames } from '../../reducers/selectors';
 const mapStateToProps = (state, ownProps) => ({
     pokemon: state.entities.pokemon[ownProps.match.params.pokemonId],
     items: Object.values(state.entities.items),
-    moves: selectPokemonMovesNames(state)
+    moves: selectPokemonMovesNames(state), 
+    loading: state.ui.loading.detailLoading
 })
 
 const mapDispatchToProps = dispatch => ({

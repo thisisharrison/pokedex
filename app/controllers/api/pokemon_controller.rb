@@ -1,5 +1,6 @@
 class Api::PokemonController < ApplicationController
     def show
+        sleep 0.5
         @poke = Pokemon.includes(:items).includes(:moves).find(params[:id])
         render :show
     end

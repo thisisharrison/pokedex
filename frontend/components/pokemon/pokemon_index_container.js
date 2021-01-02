@@ -5,7 +5,8 @@ import PokemonIndex from './pokemon_index';
 
 // pass pokemon prop to PokemonIndex
 const mapStateToProps = state => ({
-    pokemon: selectAllPokemon(state)
+    pokemon: selectAllPokemon(state), 
+    loading: state.ui.loading.indexLoading
 })
 
 const mapDispatchToProps = dispatch => ({
