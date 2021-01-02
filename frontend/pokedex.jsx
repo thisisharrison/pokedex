@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.requestSinglePokemon = requestSinglePokemon
     window.selectAllPokemon = selectAllPokemon;
     window.fetchAllPokemon = APIUtil.fetchAllPokemon;
+    window.createPokemon = APIUtil.createPokemon;
     window.store = store;
     window.getState = store.getState;
     window.dispatch = store.dispatch;

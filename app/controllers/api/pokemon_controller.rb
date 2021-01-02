@@ -10,28 +10,30 @@ class Api::PokemonController < ApplicationController
     end
 
     def create
-        @pokemon = Pokemon.new(pokemon_params)
-        if @pokemon.save
-            transaction do 
-                move_1 = Move.find_or_create_by(name: params[:move_1])
-                move_2 = Move.find_or_create_by(name: params[:move_2])
-                PokeMove.create!(pokemon_id: @pokemon_id, move_id: move_1.id)
-                PokeMove.create!(pokemon_id: @pokemon_id, move_id: move_2.id)
-            end
+        @poke = Pokemon.new(pokemon_params)
+        if @poke.save
+            move_1 = Move.find_or_create_by(name: move_params[:move_1])
+            move_2 = Move.find_or_create_by(name: move_params[:move_2])
+            PokeMove.create!(pokemon_id: @poke.id, move_id: move_1.id)
+            PokeMove.create!(pokemon_id: @poke.id, move_id: move_2.id)
             render :show
         else
-            render json @pokemon.errors.full_messages, stat: 404
+            render json: @poke.errors.full_messages, status: 404
         end
     end
 
     private
 
+    def move_params 
+        params.require(:pokemon).permit(:move_1, :move_2)
+    end
+
     def pokemon_params
         params.require(:pokemon).permit(:name, :attack, :defense, :poke_type, :image_url)
     end
 
-    def move_params
-        params.require(:pokemon).permit(:move_1, :move_2)
-    end
-
 end
+
+# Testing
+# data = {pokemon: {name: 'garfield', attack: 1, defense: 1, poke_type: 'fire', image_url: 'https://pbs.twimg.com/profile_images/1242488527285190657/O6d8H8YA_400x400.jpg', move_1: 'sleep', move_2: 'eat'}}
+# params = {:pokemon=> {:name=> 'garfield', :attack=> 1, :defense=> 1, :poke_type=> 'fire', :image_url=> 'https://pbs.twimg.com/profile_images/1242488527285190657/O6d8H8YA_400x400.jpg', :move_1=> 'sleep', :move_2=> 'eat'}}

@@ -8,18 +8,15 @@ json.moves do
         json.partial! 'api/pokemon/move', move: move
     end
 end
-json.items do 
-    @poke.items.each do |item|
-        json.partial! 'api/pokemon/item', item: item
+if @poke.items.length != 0
+    json.items do
+        @poke.items.each do |item|
+            json.partial! 'api/pokemon/item', item: item
+        end
     end
+else
+    json.items ({})
 end
-        # json.moves @poke.moves do |move|
-            
-            # json.partial! 'api/pokemon/move', move: move
-        # end
-        # json.items @poke.item do |item|
-        #     json.partial! 'api/pokemon/item', item: item
-        # end
     
 
 
