@@ -34,24 +34,6 @@ class PokemonForm extends React.Component {
 
     render() {
         const { name, attack, defense, poke_type, image_url, move_1, move_2 } = this.state;
-        const POKEMON_TYPES = [
-            'fire',
-            'electric',
-            'normal',
-            'ghost',
-            'psychic',
-            'water',
-            'bug',
-            'dragon',
-            'grass',
-            'fighting',
-            'ice',
-            'flying',
-            'poison',
-            'ground',
-            'rock',
-            'steel'
-        ]
         const typeOptions = POKEMON_TYPES.map((type, idx) => <option value={type} key={idx}>{type}</option>);
         
         return (
