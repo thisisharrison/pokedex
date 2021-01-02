@@ -6,7 +6,7 @@ class Api::PokemonController < ApplicationController
     end
 
     def index
-        @pokemon = Pokemon.all.limit(3)
+        @pokemon = Pokemon.all.limit(10)
         render :index
     end
 
