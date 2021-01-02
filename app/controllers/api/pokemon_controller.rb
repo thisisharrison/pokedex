@@ -33,7 +33,3 @@ class Api::PokemonController < ApplicationController
     end
 
 end
-
-# Testing
-# data = {pokemon: {name: 'garfield', attack: 1, defense: 1, poke_type: 'fire', image_url: 'https://pbs.twimg.com/profile_images/1242488527285190657/O6d8H8YA_400x400.jpg', move_1: 'sleep', move_2: 'eat'}}
-# params = {:pokemon=> {:name=> 'garfield', :attack=> 1, :defense=> 1, :poke_type=> 'fire', :image_url=> 'https://pbs.twimg.com/profile_images/1242488527285190657/O6d8H8YA_400x400.jpg', :move_1=> 'sleep', :move_2=> 'eat'}}

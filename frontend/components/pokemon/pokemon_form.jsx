@@ -2,7 +2,7 @@ import React from 'react';
 
 class PokemonForm extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             name: "",
             attack: "",
@@ -18,8 +18,8 @@ class PokemonForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createPokemon(this.state).then(newPokemon => {
-            this.props.history.push(`pokemon/${newPokemon.id}`);
+        this.props.createPokemon(this.state).then(newPoke => {
+            this.props.history.push(`pokemon/${newPoke.id}`);
         });
     }
 

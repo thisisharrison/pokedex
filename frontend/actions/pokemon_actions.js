@@ -33,13 +33,13 @@ export const requestSinglePokemon = (id) => dispatch => (
     APIUtil.fetchSinglePokemon(id).then(payload => dispatch(receiveSinglePokemon(payload)))
 )
 
-export const createPokemon = (pokemon) => dispatch => (
-    APIUtil.createPokemon(pokemon).then(
-        payload => {
-        dispatch(receiveSinglePokemon(payload));
-        return pokemon;
-        }, 
-        errors => {
+export const createPokemon = (pokemon) => dispatch => {
+    return APIUtil.postPokemon(pokemon).then(
+        (payload) => {
+            dispatch(receiveSinglePokemon(payload));
+            return payload.pokemon;
+        },
+        (errors) => {
             dispatch(receivePokemonErrors(errors.responseJSON))
         })
-)
+}

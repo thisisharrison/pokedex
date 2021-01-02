@@ -12,7 +12,7 @@ export const fetchSinglePokemon = (id) => (
     })
 )
 
-export const createPokemon = (pokemon) => (
+export const postPokemon = (pokemon) => (
     $.ajax({
         method: 'POST',
         url: '/api/pokemon',
