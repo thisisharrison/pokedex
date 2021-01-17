@@ -13,10 +13,18 @@
 !/log/.keep
 !/tmp/.keep
 
-/node_modules
 /yarn-error.log
 
 .byebug_history
 
+node_modules/
 bundle.js
 bundle.js.map
+
+
+/storage/*
+!/storage/.keep
+
+/config/master.key
+
+/config/application.yml
